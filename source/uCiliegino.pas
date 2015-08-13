@@ -167,6 +167,7 @@ end;
 
 procedure TForm1.EndSession(Sender: TObject);
 begin
+   W:=0; R:=0;
    Form1.Color:=clGreen;
    Tlabel.Caption:='00';
    EndBreakSound(Sender);
@@ -183,7 +184,6 @@ begin
 
   If W>0 then
   begin
-    If Blink then Form1.BlinkLed;
     Form1.Color:=clBlack;
     W:=W-1;
     m:=W div 60 +1;
@@ -195,7 +195,6 @@ begin
     else
     if R>0 then
     begin
-        If Blink then Form1.BlinkLed;
         Form1.Color:=clBlue;
         If TimerOn=1 then
         begin

@@ -84,6 +84,7 @@ end;
 procedure TSettingsForm.ResetBtnClick(Sender: TObject);
 begin
   Form1.EndSession(Sender);
+  Form1.Tlabel.Caption:=IntToStr(WT);
 end;
 
 end.
