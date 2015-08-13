@@ -14,18 +14,20 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    BitBtn1: TBitBtn;
-    Opacity: TTrackBar;
+    OkBtn: TBitBtn;
+    OpacityTrackBar: TTrackBar;
     Label5: TLabel;
     ResetBtn: TBitBtn;
     SndCheck: TCheckBox;
     ZeroBtn: TButton;
+    VolumeTrackBar: TTrackBar;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure BitBtn1Click(Sender: TObject);
-    procedure OpacityChange(Sender: TObject);
+    procedure OkBtnClick(Sender: TObject);
+    procedure OpacityTrackBarChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ZeroBtnClick(Sender: TObject);
     procedure ResetBtnClick(Sender: TObject);
+    procedure VolumeTrackBarChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,17 +51,18 @@ begin
   Form1.T1.Enabled:=True;
 end;
 
-procedure TSettingsForm.BitBtn1Click(Sender: TObject);
+procedure TSettingsForm.OkBtnClick(Sender: TObject);
 begin
   WT:=WTEdit.Value;
   RT:=RTEdit.Value;
-  SettingsForm.Close;
   SND:=SndCheck.Checked;
+  SoundVolume:=VolumeTrackBar.Position;
+  SettingsForm.Close;    
 end;
 
-procedure TSettingsForm.OpacityChange(Sender: TObject);
+procedure TSettingsForm.OpacityTrackBarChange(Sender: TObject);
 begin
-  Opa:=Opacity.Position;
+  Opa:=OpacityTrackBar.Position;
   if SetWindowLong(Form1.Handle, GWL_EXSTYLE, WS_EX_LAYERED) <> 0 then
     SetLayeredWindowAttributes(Form1.Handle, clNone, Opa, LWA_ALPHA);
 end;
@@ -68,9 +71,9 @@ procedure TSettingsForm.FormShow(Sender: TObject);
 begin
   WTEdit.Value:=WT;
   RTEdit.Value:=RT;
-  Opacity.Position:=Opa;
+  OpacityTrackBar.Position:=Opa;
   SndCheck.Checked:=SND;
-  
+  VolumeTrackBar.Position:=SoundVolume;
 end;
 
 procedure TSettingsForm.ZeroBtnClick(Sender: TObject);
@@ -83,6 +86,11 @@ procedure TSettingsForm.ResetBtnClick(Sender: TObject);
 begin
   Form1.EndSession(Sender);
   Form1.Tlabel.Caption:=IntToStr(WT);
+end;
+
+procedure TSettingsForm.VolumeTrackBarChange(Sender: TObject);
+begin
+//  SoundVolume:=VolumeTrackBar.Position;
 end;
 
 end.

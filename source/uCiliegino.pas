@@ -61,8 +61,9 @@ var
   Opa:Integer;  // opacity 0..255
   LedState:Boolean;
   Blink:Boolean;
+  SoundVolume:Integer; // Volume (min 0x0000..0xFFFF max)
 const
-  SC_DragMove = $F012;  //a magic number to enable left mouse button dragging 
+  SC_DragMove = $F012;  //a magic number to enable left mouse button dragging
   INI_FILENAME = 'Ciliegino.ini';
   HELP_FILENAME= 'help.txt';
 implementation
@@ -132,6 +133,8 @@ Procedure TForm1.breaksound(Sender:TObject);
 var
   hFind, hRes: THandle;
   Song: PChar;
+  MyWaveOutCaps: TWaveOutCaps;
+  Volume: Integer;
 begin
  if SND then
  begin
@@ -140,6 +143,9 @@ begin
      hRes:=LoadResource(HInstance, hFind) ;
      if hRes <> 0 then begin
        Song:=LockResource(hRes) ;
+       Volume:=SoundVolume;
+       if WaveOutGetDevCaps(WAVE_MAPPER, @MyWaveOutCaps, sizeof(MyWaveOutCaps))=MMSYSERR_NOERROR then
+         WaveOutSetVolume(WAVE_MAPPER, MakeLong(Volume, Volume));
        if Assigned(Song) then SndPlaySound(Song, snd_ASync or snd_Memory) ;
        UnlockResource(hRes) ;
      end;
@@ -152,6 +158,8 @@ Procedure TForm1.endbreaksound(Sender:TObject);
 var
   hFind, hRes: THandle;
   Song: PChar;
+  MyWaveOutCaps: TWaveOutCaps;  
+  Volume: Integer;  
 begin
  if SND then
  begin
@@ -159,7 +167,11 @@ begin
    if hFind <> 0 then begin
      hRes:=LoadResource(HInstance, hFind) ;
      if hRes <> 0 then begin
-       Song:=LockResource(hRes) ;
+       Song:=LockResource(hRes);
+       Volume:=SoundVolume;
+       if WaveOutGetDevCaps(WAVE_MAPPER, @MyWaveOutCaps, sizeof(MyWaveOutCaps))=MMSYSERR_NOERROR then
+         WaveOutSetVolume(WAVE_MAPPER, MakeLong(Volume, Volume));
+
        if Assigned(Song) then SndPlaySound(Song, snd_ASync or snd_Memory) ;
        UnlockResource(hRes) ;
      end;
@@ -276,8 +288,11 @@ begin
       SND:=ReadBool('Params', 'Sound', True);
       WriteBool('Params', 'Sound', SND);
 
-      Opa:=ReadInteger('Params', 'Opacity', 192);
+      SoundVolume:=ReadInteger('Params', 'Volume', 32768);
+      if ((SoundVolume<0) or (SoundVolume>65535)) then SoundVolume:=32768;
+      WriteInteger('Params', 'Volume', SoundVolume);
 
+      Opa:=ReadInteger('Params', 'Opacity', 192);
 
       if ((Opa<0) or (Opa>255)) then Opa:=192;
       WriteInteger('Params', 'Opacity', Opa);
@@ -293,6 +308,8 @@ begin
   finally
     INI.Free;
   end;
+  // Currently Ctrl-Alt-Q
+  // TODO: Choose hotkey in settings
   keyid1 := GlobalAddAtom('Hotkey1');
   RegisterHotKey(Handle, keyid1, MOD_CONTROL+MOD_ALT, $51);
   Resiz(85,25,Sender);
@@ -327,6 +344,7 @@ begin
       WriteInteger('Time', 'WorkTime', WT);
       WriteInteger('Time', 'RestTime', RT);
       WriteBool('Params','Sound',SND);
+      WriteInteger('Params','Volume',SoundVolume);
       WriteInteger('Params','Opacity',Opa);
       WriteInteger('Params','Left',Form1.Left);
       WriteInteger('Params','Top',Form1.Top);

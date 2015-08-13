@@ -106,17 +106,17 @@ object SettingsForm: TSettingsForm
     TabOrder = 1
     Value = 5
   end
-  object BitBtn1: TBitBtn
+  object OkBtn: TBitBtn
     Left = 223
     Top = 85
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     TabOrder = 2
-    OnClick = BitBtn1Click
+    OnClick = OkBtnClick
     Kind = bkOK
   end
-  object Opacity: TTrackBar
+  object OpacityTrackBar: TTrackBar
     Left = 98
     Top = 56
     Width = 206
@@ -127,7 +127,7 @@ object SettingsForm: TSettingsForm
     TabOrder = 3
     ThumbLength = 15
     TickStyle = tsNone
-    OnChange = OpacityChange
+    OnChange = OpacityTrackBarChange
   end
   object ResetBtn: TBitBtn
     Left = 192
@@ -141,7 +141,7 @@ object SettingsForm: TSettingsForm
   object SndCheck: TCheckBox
     Left = 8
     Top = 88
-    Width = 97
+    Width = 65
     Height = 17
     Caption = 'Sound'
     TabOrder = 5
@@ -154,5 +154,18 @@ object SettingsForm: TSettingsForm
     Caption = 'Zero'
     TabOrder = 6
     OnClick = ZeroBtnClick
+  end
+  object VolumeTrackBar: TTrackBar
+    Left = 64
+    Top = 88
+    Width = 153
+    Height = 25
+    Max = 65535
+    Frequency = 128
+    Position = 192
+    TabOrder = 7
+    ThumbLength = 15
+    TickStyle = tsNone
+    OnChange = VolumeTrackBarChange
   end
 end
