@@ -36,9 +36,9 @@ object SettingsForm: TSettingsForm
   object Label2: TLabel
     Left = 157
     Top = 10
-    Width = 27
+    Width = 21
     Height = 16
-    Caption = #1052#1080#1085
+    Caption = 'Min'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -62,9 +62,9 @@ object SettingsForm: TSettingsForm
   object Label4: TLabel
     Left = 157
     Top = 34
-    Width = 27
+    Width = 21
     Height = 16
-    Caption = #1052#1080#1085
+    Caption = 'Min'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -138,22 +138,13 @@ object SettingsForm: TSettingsForm
     TabOrder = 4
     OnClick = ResetBtnClick
   end
-  object BlinkCheck: TCheckBox
-    Left = 120
-    Top = 88
-    Width = 97
-    Height = 17
-    Caption = 'Blink'
-    TabOrder = 5
-    Visible = False
-  end
   object SndCheck: TCheckBox
     Left = 8
     Top = 88
     Width = 97
     Height = 17
     Caption = 'Sound'
-    TabOrder = 6
+    TabOrder = 5
   end
   object ZeroBtn: TButton
     Left = 248
@@ -161,7 +152,7 @@ object SettingsForm: TSettingsForm
     Width = 49
     Height = 25
     Caption = 'Zero'
-    TabOrder = 7
+    TabOrder = 6
     OnClick = ZeroBtnClick
   end
 end

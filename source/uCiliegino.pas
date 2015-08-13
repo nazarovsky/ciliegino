@@ -62,14 +62,17 @@ var
   LedState:Boolean;
   Blink:Boolean;
 const
-  SC_DragMove = $F012;  { a magic number }
+  SC_DragMove = $F012;  //a magic number to enable left mouse button dragging 
   INI_FILENAME = 'Ciliegino.ini';
   HELP_FILENAME= 'help.txt';
 implementation
 
 uses uSettings;
 
-{$R *.DFM} {$R cilieginores.RES}
+{$R *.DFM}
+// the WAV files are compiled into the binary
+// by 'compileres.bat'
+{$R cilieginores.RES}
 
 procedure TForm1.SpeedButton1Click(Sender: TObject);
 begin
@@ -275,7 +278,6 @@ begin
 
       Opa:=ReadInteger('Params', 'Opacity', 192);
 
-      Blink:=(ReadInteger('Params', 'Blink', 0)=1);
 
       if ((Opa<0) or (Opa>255)) then Opa:=192;
       WriteInteger('Params', 'Opacity', Opa);
@@ -328,7 +330,6 @@ begin
       WriteInteger('Params','Opacity',Opa);
       WriteInteger('Params','Left',Form1.Left);
       WriteInteger('Params','Top',Form1.Top);
-      If Blink then WriteInteger('Params','Blink',1) else WriteInteger('Params','Blink',0);
     end;
   finally
     INI.Free;

@@ -18,7 +18,6 @@ type
     Opacity: TTrackBar;
     Label5: TLabel;
     ResetBtn: TBitBtn;
-    BlinkCheck: TCheckBox;
     SndCheck: TCheckBox;
     ZeroBtn: TButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -55,7 +54,6 @@ begin
   WT:=WTEdit.Value;
   RT:=RTEdit.Value;
   SettingsForm.Close;
-  Blink:=BlinkCheck.Checked;
   SND:=SndCheck.Checked;
 end;
 
@@ -72,7 +70,7 @@ begin
   RTEdit.Value:=RT;
   Opacity.Position:=Opa;
   SndCheck.Checked:=SND;
-  BlinkCheck.Checked:=Blink;  
+  
 end;
 
 procedure TSettingsForm.ZeroBtnClick(Sender: TObject);
