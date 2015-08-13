@@ -6,11 +6,17 @@ This is a simple and minimalistic pomodoro timer program.
 It was written in Delphi some years ago. I use it quite often. If it would also be helpful for you, I shall be happy.
 Pomodoro technique is discussed here: [http://www.pomodorotechnique.com/](http://www.pomodorotechnique.com/).
 
+Main window
+-----------
+
 The main form of the program is organised as follows:
 
 ![screenshot](https://cloud.githubusercontent.com/assets/3508394/9248602/c4726d2c-41c5-11e5-8737-f38aa0dcdfaa.jpg)
 
 You can drag the main form with left mouse button.
+
+Workflow
+--------
 
 There are three basic modes:
 
@@ -20,6 +26,8 @@ There are three basic modes:
 
 ![workflow](https://cloud.githubusercontent.com/assets/3508394/9248985/8388c01e-41c9-11e5-93ff-7136e1049b63.png)
 
+Settings
+--------
 You can enter the `Settings` by right clicking on the program window and choosing `Settings`.
 
 ![settings](https://cloud.githubusercontent.com/assets/3508394/9249036/d5d423d6-41c9-11e5-9763-324ce72b44b8.jpg)
@@ -27,7 +35,17 @@ You can enter the `Settings` by right clicking on the program window and choosin
 Here you can set up `WORK time` and `REST time`.
 You can reset timer to IDLE by pressing `Reset` button. The session counter is reset by `Zero` button.
 Also you can adjust opacity of the main window and enable/disable sounds.
-The program saves settings in the .ini file, in the same folder, where .exe is placed.
+The program saves settings in the `.ini` file, in the same folder, where `.exe` is placed.
+
+Installation
+------------
+You can grab the `.exe` file from the `win32` folder and launch it. It is self sufficient. Program works only in Windows OS.
+
+Q & A
+-----
+- What the hell is Ciliegino?
+- It's a small "cherry" tomato :)
+
 
 
 

@@ -107,8 +107,8 @@ object SettingsForm: TSettingsForm
     Value = 5
   end
   object BitBtn1: TBitBtn
-    Left = 226
-    Top = 88
+    Left = 223
+    Top = 85
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
@@ -117,9 +117,9 @@ object SettingsForm: TSettingsForm
     Kind = bkOK
   end
   object Opacity: TTrackBar
-    Left = 104
+    Left = 98
     Top = 56
-    Width = 201
+    Width = 206
     Height = 25
     Max = 255
     Frequency = 5
