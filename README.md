@@ -30,7 +30,7 @@ Settings
 --------
 You can enter the `Settings` by right clicking on the program window and choosing `Settings`.
 
-![settings](https://cloud.githubusercontent.com/assets/3508394/9249036/d5d423d6-41c9-11e5-9763-324ce72b44b8.jpg)
+![settings](https://cloud.githubusercontent.com/assets/3508394/9252003/da9095ac-41de-11e5-81e1-09adf85df042.jpg)
 
 Here you can set up `WORK time` and `REST time`.
 You can reset timer to IDLE by pressing `Reset` button. The session counter is reset by `Zero` button.
@@ -43,8 +43,8 @@ You can grab the `.exe` file from the `win32` folder and launch it. It is self s
 
 Q & A
 -----
-- What the hell is Ciliegino?
-- It's a small "cherry" tomato :)
+-- Q. What the hell is Ciliegino?
+-- A. It's a small "cherry" tomato :)
 
 
 
