@@ -14,9 +14,9 @@ You can drag the main form with left mouse button.
 
 There are three basic modes:
 
-* IDLE - program starts in the IDLE mode and waits until you start a session by pressing the button. Form color is green.
-* WORK - after you push the button, the program enters WORK mode. The form becomes Green, and the timer starts to count for WORK time minutes (Value can be adjusted in `Settings` `WORK time`).
-* REST - after the WORK period is finished, program enters REST mode. The form color becomes Blue, and the timer counts for REST time minutes (Value can be adjusted in `Settings` `REST time`). 
+* `IDLE` - program starts in the IDLE mode and waits until you start a session by pressing the button. Form color is green.
+* `WORK` - after you push the button, the program enters WORK mode. The form becomes Green, and the timer starts to count for WORK time minutes (Value can be adjusted in `Settings&nbsp;-> WORK&nbsp;time`).
+* `REST` - after the WORK period is finished, program enters REST mode. The form color becomes Blue, and the timer counts for REST time minutes (Value can be adjusted in `Settings&nbsp;-> REST&nbsp;time`). 
 
 ![workflow](https://cloud.githubusercontent.com/assets/3508394/9248985/8388c01e-41c9-11e5-93ff-7136e1049b63.png)
 
