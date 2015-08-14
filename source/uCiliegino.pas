@@ -66,6 +66,8 @@ const
   SC_DragMove = $F012;  //a magic number to enable left mouse button dragging
   INI_FILENAME = 'Ciliegino.ini';
   HELP_FILENAME= 'help.txt';
+  WEB_HELP_ADDRESS='https://github.com/nazarovsky/ciliegino';
+  
 implementation
 
 uses uSettings;
@@ -379,7 +381,7 @@ var
   ExePath:String;
 begin
   ExePath:=ExtractFilePath(Application.ExeName);
-  ShellExecute(Form1.Handle, nil, pchar(ExePath+HELP_FILENAME), nil, nil, SW_RESTORE);
+  ShellExecute(Form1.Handle, nil, pchar(WEB_HELP_ADDRESS), nil, nil, SW_RESTORE);
 end;
 
 end.

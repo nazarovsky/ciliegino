@@ -15,6 +15,8 @@ The main form of the program is organised as follows:
 
 You can drag the main form with left mouse button.
 
+New session can be started by pressing a `Start` pushbutton with the left mouse button or `Ctrl-Alt-Q` from the keyboard (later program will support redefining this only hotkey).
+
 Workflow
 --------
 
@@ -25,6 +27,7 @@ There are three basic modes:
 * `REST` - after the WORK period is finished, program enters REST mode. The form color becomes Blue, and the timer counts for REST time minutes (Value can be adjusted in `Settings->REST time`). 
 
 ![workflow](https://cloud.githubusercontent.com/assets/3508394/9248985/8388c01e-41c9-11e5-93ff-7136e1049b63.png)
+
 
 Settings
 --------
@@ -43,7 +46,9 @@ You can grab the `.exe` file from the `win32` folder and launch it. It is self s
 
 Q & A
 -----
+
 -- Q. What the hell is Ciliegino?
+
 -- A. It's a small "cherry" tomato :)
 
 
